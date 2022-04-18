@@ -1,22 +1,15 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-Vue.use(Vuex)
+// index.ts
+import Vue from "vue";
+import Vuex, { StoreOptions } from "vuex";
+import { RootState } from "./types";
 
-// Load store modules dynamically.
-const requireContext = require.context('./modules', false, /.*\.js$/)
+Vue.use(Vuex);
 
-const modules = requireContext.keys()
-  .map(file =>
-    [file.replace(/(^.\/)|(\.js$)/g, ''), requireContext(file)]
-  )
-  .reduce((modules, [name, module]) => {
-    if (module.namespaced === undefined) {
-      module.namespaced = true
-    }
+const store: StoreOptions<RootState> = {
+  state: {
+    version: "1.0.0", // a simple property
+  },
+  modules: {},
+};
 
-    return { ...modules, [name]: module }
-  }, {})
-
-export default new Vuex.Store({
-  modules
-})
+export default new Vuex.Store<RootState>(store);

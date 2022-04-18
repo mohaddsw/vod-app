@@ -1,11 +1,34 @@
 {
-    "extends":[
-      "plugin:prettier/recommended"
-    ],
-  
-    "plugins": ["prettier"],
-  
-    "rules": {
-      "prettier/prettier": "error"
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2020
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "plugin:vue/essential",
+    "eslint:recommended",
+    "@vue/typescript/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "root": true,
+  "overrides": [
+    {
+      "files": [
+        "**/__tests__/*.{j,t}s?(x)",
+        "**/tests/unit/**/*.spec.{j,t}s?(x)"
+      ],
+      "env": {
+        "jest": true
+      }
     }
-  }
+  ]
+}
