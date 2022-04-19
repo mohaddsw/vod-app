@@ -1,15 +1,21 @@
 /* eslint-disable no-undef */
 const { defineConfig } = require("@vue/cli-service");
 const EslintWebpackPlugin = require("eslint-webpack-plugin");
+const StylelintPlugin = require("stylelint-webpack-plugin");
 module.exports = defineConfig({
   configureWebpack: {
     plugins: [
       new EslintWebpackPlugin({
         extensions: ["js", "ts", "vue"],
         threads: true,
-        // files: ['**/*.js', '**/*.vue'],
-        exclude: ["node_modules", ".nuxt"],
+        exclude: ["node_modules", ".dist"],
         fix: true,
+      }),
+      new StylelintPlugin({
+        files: ["**/*.vue"],
+        fix: true,
+        emitErrors: true,
+        failOnError: false,
       }),
     ],
   },
