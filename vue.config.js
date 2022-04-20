@@ -12,7 +12,7 @@ module.exports = defineConfig({
         fix: true,
       }),
       new StylelintPlugin({
-        files: ["**/*.vue"],
+        files: ["**/*.(vue|scss)"],
         fix: true,
         emitErrors: true,
         failOnError: false,

@@ -6,4 +6,14 @@
     <router-view />
   </div>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#app {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
+</style>

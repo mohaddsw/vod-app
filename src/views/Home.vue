@@ -15,7 +15,6 @@ export default class HomeView extends Vue {}
 .home-wapper {
   background: #fff;
   margin: 5px;
-
   p {
     color: red;
   }
