@@ -7,7 +7,19 @@ const routes: Array<RouteConfig> = [
   {
     path: "/",
     name: "home",
-    component: () => import("../views/Home.vue"),
+    component: () => import("../layout/TheContainer.vue"),
+    children: [
+      {
+        path: "/",
+        name: "Home",
+        component: () => import("../views/Home.vue"),
+      },
+      {
+        path: "/about",
+        name: "About",
+        component: () => import("../views/About.vue"),
+      },
+    ],
   },
 ];
 

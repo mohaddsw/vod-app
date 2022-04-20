@@ -1,6 +1,6 @@
 <template>
-  <div class="home-wrapper">
-    <p>Home</p>
+  <div class="about-wrapper">
+    <p>About</p>
   </div>
 </template>
 
@@ -9,7 +9,7 @@ import { Component, Vue } from "vue-property-decorator";
 @Component({
   components: {},
 })
-export default class Home extends Vue {}
+export default class About extends Vue {}
 </script>
 <style lang="scss" scoped>
 .home-wapper {
