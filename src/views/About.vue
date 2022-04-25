@@ -12,7 +12,7 @@ import { Component, Vue } from "vue-property-decorator";
 export default class About extends Vue {}
 </script>
 <style lang="scss" scoped>
-.home-wapper {
+.about-wrapper {
   background: #fff;
   margin: 5px;
   p {

@@ -15,7 +15,7 @@ export default class App extends Vue {}
   align-items: center;
   align-content: center;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   flex-direction: column;
 }
