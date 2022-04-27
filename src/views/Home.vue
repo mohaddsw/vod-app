@@ -9,7 +9,18 @@ import { Component, Vue } from "vue-property-decorator";
 @Component({
   components: {},
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  created() {
+    Vue.prototype.$axios
+      .get("https://jsonplaceholder.typicode.com/posts/1")
+      .then((res: any) => {
+        console.log(res);
+      })
+      .catch((err: any) => {
+        console.log(err);
+      });
+  }
+}
 </script>
 <style lang="scss" scoped>
 .home-wapper {
