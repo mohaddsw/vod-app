@@ -5,7 +5,7 @@ import store from "./store";
 import i18n from "./i18n";
 import axios from "./plugins/axios";
 
-Vue.use(axios);
+Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
 
 new Vue({

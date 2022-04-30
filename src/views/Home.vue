@@ -11,8 +11,8 @@ import { Component, Vue } from "vue-property-decorator";
 })
 export default class Home extends Vue {
   created() {
-    Vue.prototype.$axios
-      .get("https://jsonplaceholder.typicode.com/posts/1")
+    this.$axios
+      .get("/jsonplaceholder.typicode.com/posts/1")
       .then((res: any) => {
         console.log(res);
       })
