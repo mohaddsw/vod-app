@@ -1,5 +1,5 @@
 <template>
-  <div class="header-wrapper">
+  <div class="header">
     <nav>
       <router-link v-for="url in mockes" :key="url.url" :to="url.url">{{ url.name }}</router-link>
     </nav>
@@ -20,7 +20,6 @@ export default class TheHeader extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-.container {
-  background: #fff;
+.header {
 }
 </style>

@@ -2,7 +2,7 @@
   "processors": ["stylelint-processor-html"],
   "extends": "stylelint-config-standard",
   "rules": {
-    "block-no-empty": true,
+    "block-no-empty": null,
     "custom-property-empty-line-before": "never",
     "no-empty-first-line": null,
     "rule-empty-line-before": "never"

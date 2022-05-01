@@ -1,13 +1,16 @@
 <template>
-  <div class="home-wrapper">
-    <p>Home</p>
+  <div class="home">
+    <Suggestion />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import Suggestion from "@/components/Suggestion/index.vue";
 @Component({
-  components: {},
+  components: {
+    Suggestion,
+  },
 })
 export default class Home extends Vue {
   created() {
@@ -24,10 +27,5 @@ export default class Home extends Vue {
 </script>
 <style lang="scss" scoped>
 .home-wapper {
-  background: #fff;
-  margin: 5px;
-  p {
-    color: red;
-  }
 }
 </style>
