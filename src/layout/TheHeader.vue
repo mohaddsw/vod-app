@@ -41,6 +41,10 @@ export default class TheHeader extends Vue {
       align-items: center;
       a {
         height: 100%;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #fff;
       }
     }
   }

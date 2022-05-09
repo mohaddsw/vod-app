@@ -1,5 +1,5 @@
 <template>
-  <div class="suggestion"><p>stryrtyrt</p></div>
+  <div class="suggestion"></div>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";

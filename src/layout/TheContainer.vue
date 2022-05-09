@@ -2,9 +2,12 @@
   <div class="container" :style="backgroundImg">
     <main>
       <TheHeader />
-      <transition name="fade" mode="out-in">
-        <router-view :key="$route.path"> </router-view>
-      </transition>
+      <div class="page">
+        <transition name="fade" mode="out-in">
+          <router-view :key="$route.path"> </router-view>
+        </transition>
+      </div>
+      <TheFooter />
     </main>
   </div>
 </template>
@@ -12,9 +15,11 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import TheHeader from "./TheHeader.vue";
+import TheFooter from "./TheFooter.vue";
 @Component({
   components: {
     TheHeader,
+    TheFooter,
   },
 })
 export default class TheContainer extends Vue {
@@ -51,6 +56,9 @@ export default class TheContainer extends Vue {
     position: absolute;
     width: 80%;
     height: 100%;
+    .page {
+      height: calc(100% - 120px);
+    }
   }
 }
 .fade-enter-active,
