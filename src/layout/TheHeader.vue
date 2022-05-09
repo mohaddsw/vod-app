@@ -1,7 +1,14 @@
 <template>
   <div class="header">
     <nav>
-      <router-link v-for="url in mockes" :key="url.url" :to="url.url">{{ url.name }}</router-link>
+      <div class="menu">
+        <router-link v-for="url in mockes" :key="url.url" :to="url.url">{{ url.name }}</router-link>
+      </div>
+      <div class="logo">
+        <router-link to="/">
+          <img width="100" src="../../public/logo.png" alt="disny" />
+        </router-link>
+      </div>
     </nav>
   </div>
 </template>
@@ -13,13 +20,29 @@ import { Component, Vue } from "vue-property-decorator";
   components: {},
 })
 export default class TheHeader extends Vue {
-  x = Mocks;
+  mockUrl = Mocks;
   get mockes() {
-    return this.x;
+    return this.mockUrl;
   }
 }
 </script>
 <style lang="scss" scoped>
 .header {
+  height: 70px;
+  width: 100%;
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    .menu {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      a {
+        height: 100%;
+      }
+    }
+  }
 }
 </style>

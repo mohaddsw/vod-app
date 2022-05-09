@@ -1,9 +1,11 @@
 <template>
   <div class="container" :style="backgroundImg">
-    <TheHeader />
-    <transition name="fade" mode="out-in">
-      <router-view :key="$route.path"> </router-view>
-    </transition>
+    <main>
+      <TheHeader />
+      <transition name="fade" mode="out-in">
+        <router-view :key="$route.path"> </router-view>
+      </transition>
+    </main>
   </div>
 </template>
 
@@ -17,29 +19,43 @@ import TheHeader from "./TheHeader.vue";
 })
 export default class TheContainer extends Vue {
   backgroundImg = {
-    background: "url(/images/tt.jpg)",
+    backgroundImage: "url(/images/tt.jpg)",
   };
 }
 </script>
 <style lang="scss" scoped>
 .container {
+  position: relative;
   width: 100%;
   height: 100vh;
-
   background-attachment: fixed !important;
   background-size: cover !important;
   background-position: center !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  &::after {
+  &::before {
+    content: "";
+    z-index: 0;
     background: linear-gradient(20deg, #010000, #300202, #4e0303, #600909, #a91111);
     width: 100%;
     height: 100%;
+    position: absolute;
+    top: 0;
     opacity: 0.8;
+    display: block;
+  }
+  main {
+    z-index: 1;
+    position: absolute;
+    width: 80%;
+    height: 100%;
   }
 }
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.5s;
+  transition: all 0.3s;
 }
 .fade-enter,
 .fade-leave-to {
