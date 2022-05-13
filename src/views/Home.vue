@@ -13,16 +13,16 @@ import Suggestion from "@/components/Suggestion/index.vue";
   },
 })
 export default class Home extends Vue {
-  created() {
-    this.$axios
-      .get("/jsonplaceholder.typicode.com/posts/1")
-      .then((res: any) => {
-        console.log(res);
-      })
-      .catch((err: any) => {
-        console.log(err);
-      });
-  }
+  // created() {
+  //   this.$axios
+  //     .get("/jsonplaceholder.typicode.com/posts/1")
+  //     .then((res: any) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err: any) => {
+  //       console.log(err);
+  //     });
+  // }
 }
 </script>
 <style lang="scss" scoped>

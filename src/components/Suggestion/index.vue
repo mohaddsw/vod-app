@@ -1,6 +1,8 @@
 <template>
   <div class="suggestion">
-    <div class="suggestion__swiper"></div>
+    <div class="suggestion__swiper">
+      <!-- <Swiper /> -->
+    </div>
     <div class="suggestion__content">
       <div class="suggestion__title">Test</div>
       <div class="suggestion__description">
@@ -14,8 +16,13 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import Swiper from "../SwiperComp/index.vue";
 
-@Component({})
+@Component({
+  components: {
+    Swiper,
+  },
+})
 export default class Suggestion extends Vue {}
 </script>
 <style lang="scss" scoped>
@@ -37,6 +44,7 @@ export default class Suggestion extends Vue {}
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    flex-direction: column;
   }
   &__title {
   }
