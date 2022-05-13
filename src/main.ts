@@ -4,8 +4,11 @@ import router from "./router";
 import store from "./store";
 import i18n from "./i18n";
 import axios from "./plugins/axios";
+import swiper from "swiper";
 
 Vue.prototype.$axios = axios;
+Vue.prototype.swiper = swiper;
+
 Vue.config.productionTip = false;
 
 new Vue({

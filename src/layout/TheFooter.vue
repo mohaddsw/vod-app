@@ -20,6 +20,7 @@ export default class TheFooter extends Vue {}
   display: flex;
   align-items: center;
   justify-content: center;
+  bottom: 0;
   p {
     margin: 0;
     padding: 0;

@@ -43,13 +43,14 @@ export default class TheContainer extends Vue {
   &::before {
     content: "";
     z-index: 0;
-    background: linear-gradient(20deg, #010000, #300202, #4e0303, #600909, #a91111);
+    background: linear-gradient(20deg, #010000, #300202);
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     opacity: 0.8;
     display: block;
+    backdrop-filter: blur(20px);
   }
   main {
     z-index: 1;
