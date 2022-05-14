@@ -7,22 +7,23 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Suggestion from "@/components/Suggestion/index.vue";
+import api from "@/apis/movieApi";
 @Component({
   components: {
     Suggestion,
   },
 })
 export default class Home extends Vue {
-  // created() {
-  //   this.$axios
-  //     .get("/jsonplaceholder.typicode.com/posts/1")
-  //     .then((res: any) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err: any) => {
-  //       console.log(err);
-  //     });
-  // }
+  created() {
+    this.$axios
+      .get(api.getTopMovie())
+      .then((res: any) => {
+        console.log(res);
+      })
+      .catch((err: any) => {
+        console.log(err);
+      });
+  }
 }
 </script>
 <style lang="scss" scoped>
