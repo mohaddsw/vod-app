@@ -29,7 +29,9 @@ export default class TheContainer extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100&display=swap");
 .container {
+  font-family: "Roboto Flex", sans-serif;
   position: relative;
   width: 100%;
   height: 100vh;

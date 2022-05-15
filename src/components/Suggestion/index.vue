@@ -17,15 +17,41 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import swiperComp from "../SwiperComp/index.vue";
+import api from "@/apis/movieApi";
+type Tlist = {
+  crew: string;
+  fullTitle: string;
+  id: string;
+  imDbRating: string;
+  imDbRatingCount: string;
+  image: string;
+  rank: string;
+  title: string;
+  year: string;
+};
 
 @Component({
   components: {
     swiperComp,
   },
 })
-export default class Suggestion extends Vue {}
+export default class Suggestion extends Vue {
+  lists: Array<Tlist> = [];
+  created() {
+    this.$axios
+      .get(api.getTopMovie())
+      .then((res: any) => {
+        console.log(res);
+        this.lists = res.data;
+      })
+      .catch((err: any) => {
+        console.log(err);
+      });
+  }
+}
 </script>
 <style lang="scss" scoped>
+@import url("https://fonts.googleapis.com/css2?family=Frijole&family=Lobster&display=swap");
 .suggestion {
   width: 100%;
   height: 100%;
@@ -50,8 +76,11 @@ export default class Suggestion extends Vue {}
     flex-direction: column;
   }
   &__title {
+    font-family: "Frijole", cursive;
+    font-size: 70px;
   }
   &__description {
+    line-height: 35px;
   }
 }
 </style>
