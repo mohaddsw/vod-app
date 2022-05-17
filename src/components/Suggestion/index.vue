@@ -17,7 +17,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import swiperComp from "../SwiperComp/index.vue";
-import api from "@/apis/movieApi";
+
 type Tlist = {
   crew: string;
   fullTitle: string;
@@ -38,15 +38,11 @@ type Tlist = {
 export default class Suggestion extends Vue {
   lists: Array<Tlist> = [];
   created() {
-    this.$axios
-      .get(api.getTopMovie())
-      .then((res: any) => {
-        console.log(res);
-        this.lists = res.data;
-      })
-      .catch((err: any) => {
-        console.log(err);
-      });
+    this.$store.dispatch("getTopMovies");
+  }
+  getTopMovies() {
+    // get():{
+    // }
   }
 }
 </script>

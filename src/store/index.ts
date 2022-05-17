@@ -1,12 +1,17 @@
 import Vue from "vue";
-import Vuex from "vuex";
+import Vuex, { StoreOptions } from "vuex";
+import { RootState } from "./types";
+import { Movie } from "./movies";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
-  modules: {},
-});
+const store: StoreOptions<RootState> = {
+  state: {
+    test: "this is a test sentence",
+    version: "20",
+  },
+  modules: {
+    Movie,
+  },
+};
+export default new Vuex.Store<RootState>(store);
