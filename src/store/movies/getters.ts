@@ -4,6 +4,6 @@ import { MovieState } from "./types";
 
 export const getters: GetterTree<MovieState, RootState> = {
   getTopMovies(state): any {
-    return [];
+    return state.topMovies;
   },
 };

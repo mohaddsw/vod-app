@@ -3,3 +3,4 @@ declare module "*.vue" {
   export default Vue;
 }
 declare module "vue-carousel-3d";
+declare module "vuetify";

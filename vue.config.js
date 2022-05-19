@@ -2,6 +2,7 @@
 const { defineConfig } = require("@vue/cli-service");
 const EslintWebpackPlugin = require("eslint-webpack-plugin");
 const StylelintPlugin = require("stylelint-webpack-plugin");
+const VuetifyLoaderPlugin = require("vuetify-loader/lib/plugin");
 module.exports = defineConfig({
   configureWebpack: {
     plugins: [
@@ -17,6 +18,7 @@ module.exports = defineConfig({
         emitErrors: true,
         failOnError: false,
       }),
+      new VuetifyLoaderPlugin(),
     ],
   },
   transpileDependencies: true,

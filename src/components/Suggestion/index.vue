@@ -1,7 +1,15 @@
 <template>
-  <div class="suggestion">
+  <div class="suggestion" v-if="moviesList.length">
     <div class="suggestion__swiper">
-      <swiperComp />
+      <v-carousel hide-delimiters next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @change="changeSlid">
+        <v-carousel-item
+          v-for="(movie, i) in moviesList"
+          :key="i"
+          :src="movie.image"
+          reverse-transition="fade-transition"
+          transition="fade-transition"
+        ></v-carousel-item>
+      </v-carousel>
     </div>
     <div class="suggestion__content">
       <div class="suggestion__title">Test</div>
@@ -15,10 +23,10 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import swiperComp from "../SwiperComp/index.vue";
+import { Component, Vue, Watch } from "vue-property-decorator";
+import { Carousel3d, Slide } from "vue-carousel-3d";
 
-type Tlist = {
+export type Tlist = {
   crew: string;
   fullTitle: string;
   id: string;
@@ -29,25 +37,44 @@ type Tlist = {
   title: string;
   year: string;
 };
+export interface ITopMovies {
+  data: Array<Tlist>;
+  type: boolean;
+}
 
 @Component({
   components: {
-    swiperComp,
+    Carousel3d,
+    Slide,
   },
 })
 export default class Suggestion extends Vue {
-  lists: Array<Tlist> = [];
+  moviesList: Array<Tlist> = [];
   created() {
     this.$store.dispatch("getTopMovies");
   }
-  getTopMovies() {
-    // get():{
-    // }
+  get topMovie() {
+    return this.$store.state.Movie.topMovies;
+  }
+  changeSlid(val: number) {
+    console.log(val, "test");
+  }
+  @Watch("topMovie")
+  onPropertyChanged(value: ITopMovies) {
+    this.moviesList = value.data;
   }
 }
 </script>
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Frijole&family=Lobster&display=swap");
+::v-deep {
+  .v-window__prev {
+    left: 0;
+  }
+  .v-window__next {
+    right: 0;
+  }
+}
 .suggestion {
   width: 100%;
   height: 100%;

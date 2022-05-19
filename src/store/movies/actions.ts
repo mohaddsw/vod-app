@@ -11,7 +11,7 @@ export const actions: ActionTree<MovieState, RootState> = {
       .get(api.getTopMovie())
       .then((res: any) => {
         const data = {
-          data: res.data,
+          data: res.data.items,
           type: true,
         };
         commit(mutationType.SET_TOP_MOVIES, data);

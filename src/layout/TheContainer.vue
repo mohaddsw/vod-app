@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :style="backgroundImg">
+  <div class="containerWrapper" :style="backgroundImg">
     <main>
       <TheHeader />
       <div class="page">
@@ -30,7 +30,7 @@ export default class TheContainer extends Vue {
 </script>
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100&display=swap");
-.container {
+.containerWrapper {
   font-family: "Roboto Flex", sans-serif;
   position: relative;
   width: 100%;
