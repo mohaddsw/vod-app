@@ -24,4 +24,7 @@ export const actions: ActionTree<MovieState, RootState> = {
         commit(mutationType.SET_TOP_MOVIES, data);
       });
   },
+  selectedMovie({ commit }, payload): void {
+    commit(mutationType.SET_SELECTED_MOVIE, payload);
+  },
 };

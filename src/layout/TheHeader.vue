@@ -1,13 +1,8 @@
 <template>
   <div class="header">
     <nav>
-      <div class="menu">
-        <router-link v-for="url in mockes" :key="url.url" :to="url.url">{{ url.name }}</router-link>
-      </div>
       <div class="logo">
-        <router-link to="/">
-          <img width="100" src="../../public/logo.png" alt="disny" />
-        </router-link>
+        <router-link to="/"> TOP MOVIES </router-link>
       </div>
     </nav>
   </div>
@@ -27,25 +22,29 @@ export default class TheHeader extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+@import url("https://fonts.googleapis.com/css2?family=Frijole&family=Lobster&display=swap");
 .header {
   height: 70px;
   width: 100%;
   nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: 100%;
+    padding-top: 50px;
     .menu {
       height: 100%;
       display: flex;
       align-items: center;
-      a {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: #fff;
-      }
+    }
+    a {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+      font-family: "Frijole", cursive;
+      font-size: 45px;
     }
   }
 }

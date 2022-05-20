@@ -1,5 +1,5 @@
 <template>
-  <div class="containerWrapper" :style="backgroundImg">
+  <div v-if="backgroundImg !== {}" class="containerWrapper" :style="backgroundImg">
     <main>
       <TheHeader />
       <div class="page">
@@ -13,9 +13,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Watch } from "vue-property-decorator";
 import TheHeader from "./TheHeader.vue";
 import TheFooter from "./TheFooter.vue";
+import { Tlist } from "@/components/Suggestion/index.vue";
 @Component({
   components: {
     TheHeader,
@@ -23,9 +24,17 @@ import TheFooter from "./TheFooter.vue";
   },
 })
 export default class TheContainer extends Vue {
-  backgroundImg = {
-    backgroundImage: "url(/images/tt.jpg)",
-  };
+  backgroundImg = {};
+  get selectedMovie() {
+    return this.$store.state.Movie.selectedMovie;
+  }
+  selectedMovieImage = "";
+  @Watch("selectedMovie")
+  onPropertyChanged(val: Tlist) {
+    this.backgroundImg = {
+      backgroundImage: `url(${val.image})`,
+    };
+  }
 }
 </script>
 <style lang="scss" scoped>

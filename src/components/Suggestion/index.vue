@@ -12,19 +12,21 @@
       </v-carousel>
     </div>
     <div class="suggestion__content">
-      <div class="suggestion__title">Test</div>
+      <div class="suggestion__title">{{ selectedMovie.title }}</div>
       <div class="suggestion__description">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse temporibus perferendis fugiat facere
-          consequuntur molestias dignissimos, ipsa expedita doloribus eligendi!
-        </p>
+        <ul>
+          <li><strong>crew</strong>: {{ selectedMovie.crew }}</li>
+          <li><strong>Year</strong>: {{ selectedMovie.year }}</li>
+          <li>
+            <strong>imDb Rating</strong>: <v-chip dark color="primary">{{ selectedMovie.imDbRating }}</v-chip>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue, Watch } from "vue-property-decorator";
-import { Carousel3d, Slide } from "vue-carousel-3d";
 
 export type Tlist = {
   crew: string;
@@ -43,10 +45,7 @@ export interface ITopMovies {
 }
 
 @Component({
-  components: {
-    Carousel3d,
-    Slide,
-  },
+  components: {},
 })
 export default class Suggestion extends Vue {
   moviesList: Array<Tlist> = [];
@@ -56,8 +55,21 @@ export default class Suggestion extends Vue {
   get topMovie() {
     return this.$store.state.Movie.topMovies;
   }
+
+  selectedMovie: Tlist = {
+    crew: "",
+    fullTitle: "",
+    id: "",
+    imDbRating: "",
+    imDbRatingCount: "",
+    image: "",
+    rank: "",
+    title: "",
+    year: "",
+  };
   changeSlid(val: number) {
-    console.log(val, "test");
+    this.selectedMovie = this.moviesList[val];
+    this.$store.dispatch("selectedMovie", this.selectedMovie);
   }
   @Watch("topMovie")
   onPropertyChanged(value: ITopMovies) {
@@ -100,7 +112,7 @@ export default class Suggestion extends Vue {
   }
   &__title {
     font-family: "Frijole", cursive;
-    font-size: 70px;
+    font-size: 45px;
   }
   &__description {
     line-height: 35px;
